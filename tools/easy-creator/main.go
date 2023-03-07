@@ -52,7 +52,7 @@ func main() {
 	if err != nil {
 		log.Println("create " + "main.py" + " failure." + err.Error())
 	} else {
-		f.Write([]byte(fmt.Sprintf("class Solution:\n\tpass\n\nif __name__ == \"__main__\":\n\tsolu = Solution()\n")))
+		f.Write([]byte(fmt.Sprintf("class Solution:\n    pass\n\nif __name__ == \"__main__\":\n    solu = Solution()\n")))
 	}
 	f.Close()
 	var readMe = fmt.Sprintf("# [%s](%s)\n## Description\n## Solution\n", *titleFlag, *link)
