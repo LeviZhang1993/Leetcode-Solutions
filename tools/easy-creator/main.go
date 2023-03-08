@@ -1,20 +1,73 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
 	"log"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
+
+type TableRow []string
+
+func (t TableRow) Len() int { return len(t) }
+
+func extractFristNum(s string) int {
+	ans, _ := strconv.Atoi(s[1:6])
+	return ans
+}
+
+func (t TableRow) Less(i, j int) bool {
+	return extractFristNum(t[i]) < extractFristNum(t[j])
+}
+
+func (t TableRow) Swap(i, j int) {
+	t[i], t[j] = t[j], t[i]
+}
+
+func sortReadMeQuestions() {
+	f, err := os.OpenFile("../../README.md", os.O_RDWR, 0666)
+	defer f.Close()
+	if err != nil {
+		log.Fatal("Fail to open README in sortReadMeQuestions")
+	}
+	table := TableRow{}
+	scanner := bufio.NewScanner(f)
+	res := []string{}
+	idx := []int{}
+	for scanner.Scan() {
+		text := scanner.Text()
+		if len(text) > 0 && text[0] == byte('|') {
+			table = append(table, text)
+			idx = append(idx, len(res))
+		}
+		res = append(res, text)
+	}
+	table, idx = table[1:], idx[1:]
+	sort.Sort(table)
+	for i := range idx {
+		res[idx[i]] = table[i]
+	}
+	f.Seek(0, 0)
+	for _, text := range res {
+		f.WriteString(text + "\n")
+	}
+}
 
 func main() {
 	// flag
 	// title: question
 	var titleFlag = flag.String("title", "", "title of question like to add")
 	var link = flag.String("link", "", "link of question'")
+	var t = flag.String("type", "create", "type of command")
 	flag.Parse()
+	if *t == "sort" {
+		sortReadMeQuestions()
+		return
+	}
 	if *titleFlag == "" || *link == "" {
 		log.Fatal("Expect a non-empty title")
 		return
