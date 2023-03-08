@@ -132,4 +132,5 @@ func main() {
 			num, desc, linkPrefix, wholeTitle, linkPrefix, wholeTitle)))
 	}
 	f.Close()
+	sortReadMeQuestions()
 }
