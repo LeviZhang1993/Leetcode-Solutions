@@ -52,8 +52,12 @@ func sortReadMeQuestions() {
 		res[idx[i]] = table[i]
 	}
 	f.Seek(0, 0)
-	for _, text := range res {
-		f.WriteString(text + "\n")
+	for i, text := range res {
+		if i != len(res)-1 {
+			f.WriteString(text + "\n")
+		} else {
+			f.WriteString(text)
+		}
 	}
 }
 
