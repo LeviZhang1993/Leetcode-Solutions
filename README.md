@@ -4,6 +4,7 @@ Leetcode questions solutions in Python and Go
 # Solutions
 | No.    |  Title  |  Go-Solution  |  Python-Solution |  Alg |
 |:--------:|:--------------------------------------------------------------|:--------:|:--------:|:----------:|
+|00023|Merge k Sorted Lists|[Go](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00023.Merge-k-Sorted-Lists/go-solution)|[Python](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00023.Merge-k-Sorted-Lists/python-solution)|Priority Queue|
 |00028|Find the Index of the First Occurrence in a String|[Go](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00028.Find-the-Index/go-solution)|[Python](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00028.Find-the-Index/python-solution)|KMP|
 |00109|Convert Sorted List to Binary Search Tree|[Go](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00109.Convert-Sorted-List-to-Binary-Search-Tree/go-solution)|[Python](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00109.Convert-Sorted-List-to-Binary-Search-Tree/python-solution)|Divide and Conquer|
 |00142|Linked List Cycle II|[Go](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00142.Linked-List-Cycle-II/go-solution)|[Python](https://github.com/LeviZhang1993/Leetcode-Solutions/tree/main/leetcode/00142.Linked-List-Cycle-II/python-solution)|Simulation|
