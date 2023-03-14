@@ -1,3 +1,6 @@
+from typing import List
+
+
 class BIT:
     
     def __init__(self, n):

@@ -82,6 +82,10 @@ func main() {
 	title := strings.Replace(desc, " ", "-", -1)
 	wholeTitle := fmt.Sprintf("%05d.%s", num, title)
 	// create directory
+	if _, err := os.Stat(fmt.Sprintf("../../leetcode/%s", wholeTitle)); err == nil {
+		log.Println("question exists")
+		os.Exit(0)
+	}
 	for _, dir := range []string{"go-solution", "python-solution"} {
 		err := os.MkdirAll(fmt.Sprintf("../../leetcode/%s/%s", wholeTitle, dir), 0700)
 		if err != nil {
