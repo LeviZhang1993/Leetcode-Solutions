@@ -15,13 +15,13 @@ type TableRow []string
 
 func (t TableRow) Len() int { return len(t) }
 
-func extractFristNum(s string) int {
+func extractFirstNum(s string) int {
 	ans, _ := strconv.Atoi(s[1:6])
 	return ans
 }
 
 func (t TableRow) Less(i, j int) bool {
-	return extractFristNum(t[i]) < extractFristNum(t[j])
+	return extractFirstNum(t[i]) < extractFirstNum(t[j])
 }
 
 func (t TableRow) Swap(i, j int) {
@@ -36,8 +36,8 @@ func sortReadMeQuestions() {
 	}
 	table := TableRow{}
 	scanner := bufio.NewScanner(f)
-	res := []string{}
-	idx := []int{}
+	res := make([]string, 0)
+	idx := make([]int, 0)
 	for scanner.Scan() {
 		text := scanner.Text()
 		if len(text) > 0 && text[0] == byte('|') {
